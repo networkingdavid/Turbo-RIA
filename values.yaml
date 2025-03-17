@@ -1,5 +1,5 @@
 deletePersistentVolumes: true
-license: "{\"licenseData\": \"xxxxxxx\", \"licenseDetailsData\": \"{\\\"description\\\":\\\"Non-gating license key for on-premise production usage\\\"}\"}"
+license: "{\"licenseData\": \"xxxxxxxzx\", \"licenseDetailsData\": \"{\\\"description\\\":\\\"Non-gating license key for on-premise production usage\\\"}\"}"
 common:
   mysqldb:
     database: "pliant"
@@ -226,9 +226,6 @@ rna:
       registry: "{{ .Values.imageRegistry | required `.Values.imageRegistry is required!` }}"
       repository: "pliant-worker-nodejs-config-master"
       tag: "v1.31.1"
-    resources:
-      requests:
-        memory: "1150Mi"
     replicas: 1
   pliant_worker_nodejs_remote:
     image:
@@ -238,6 +235,9 @@ rna:
       repository: "pliant-worker-nodejs-remote-master"
       tag: "v1.55.0"
     replicas: 0
+    resources:
+      requests:
+        memory: "650Mi"
   pliant_worker_nodejs:
     image:
       pullPolicy: "IfNotPresent"
@@ -245,10 +245,10 @@ rna:
       registry: "{{ .Values.imageRegistry | required `.Values.imageRegistry is required!` }}"
       repository: "pliant-worker-nodejs-master"
       tag: "v1.122.2"
-    replicas: 2
     resources:
       requests:
-        memory: "1Gi"
+        memory: "650Mi"
+    replicas: 2
   rna_utils:
     image:
       pullPolicy: "IfNotPresent"
